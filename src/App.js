@@ -1,20 +1,16 @@
 import React from "react";
-import { Route, Switch } from "react-router-dom";
+import { Switch } from "react-router-dom";
+import { renderRoutes } from "react-router-config";
 
 import routes from "./routes";
 
 import Navbar from "./components/Navbar";
-import Login from "./pages/login";
-import Home from "./pages/home";
 
 function App() {
   return (
     <div>
       <Navbar />
-      <Switch>
-        <Route path="/login" component={Login} />
-        <Route path="/" component={Home} />
-      </Switch>
+      {renderRoutes(routes)}
     </div>
   );
 }

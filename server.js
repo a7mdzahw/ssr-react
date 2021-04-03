@@ -20,11 +20,9 @@ app.get(/\.(js|css|map|ico)$/, express.static("./build"));
 app.get("*", async (req, res) => {
   const store = createStore();
 
-  const promises = matchRoutes(routes, req.originalUrl).map((route) =>
-    route.getServerSideData ? route.getServerSideData(store) : null
+  matchRoutes(routes, req.originalUrl).map(async ({ route }) =>
+    route.getServerSideData ? await route.getServerSideData(store) : null
   );
-
-  await Promise.all(promises);
 
   const page = rds.renderToString(
     <StaticRouter location={req.originalUrl} context={{}}>

@@ -5,6 +5,7 @@ import Users, { getServerSideData } from "./pages/users";
 export default [
   {
     path: "/",
+    exact: true,
     component: Home,
   },
   { path: "/login", component: Login },

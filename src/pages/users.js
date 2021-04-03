@@ -19,8 +19,12 @@ export const getServerSideData = (store) => {
     {
       id: 1,
       name: "ahmed",
+    },
+    {
       id: 2,
       name: "Ali",
+    },
+    {
       id: 3,
       name: "Mohamed",
     },
